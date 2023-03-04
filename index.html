@@ -39,17 +39,20 @@
             </div>
           </div>
         </form>
-        <h1>Sydney NSW, Australia</h1>
-        <ul>
-          <li id="current-date">Wednesday 22:00</li>
-          <li>Partly Cloudy</li>
-        </ul>
+        <div class="weather-overview">
+          <h1>Sydney NSW, Australia</h1>
+          <ul>
+            <li id="current-date">Wednesday 22:00</li>
+            <li>Partly Cloudy</li>
+          </ul>
+        </div>
         <div class="row">
           <div class="col-6">
-            <div class="clearfix">
+            <div class="d-flex weather-temperature">
               <img
                 src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                class="weather-icon float-left"
+                alt="partly-sunny"
+                id="icon"
               />
               <span class="temperature currentTemp">19</span>
               <span class="units">°C | </span>
@@ -57,16 +60,16 @@
             </div>
           </div>
           <div class="col-6">
-            <ul>
-              <li>Precipitation: 0%</li>
-              <li>Humidity: 77%</li>
-              <li>Wind: 8 km/h</li>
-            </ul>
             <div class="btn-group" role="group" aria-label="Basic example">
               <button type="button" class="btn btn-primary currentLoc">
                 Current Location
               </button>
             </div>
+            <ul>
+              <li>Precipitation: 0%</li>
+              <li>Humidity: 77%</li>
+              <li>Wind: 8 km/h</li>
+            </ul>
           </div>
           <div class="col">Sunday</div>
           <div class="col">Monday</div>
@@ -76,13 +79,14 @@
           <div class="col">Friday</div>
         </div>
       </div>
+      <p>
+        <a href="https://github.com/smooth-like-butter/plus-project">
+          Open-source code</a
+        >
+        by Steph Schatz
+      </p>
     </div>
-    <p>
-      <a href="https://github.com/smooth-like-butter/plus-project">
-        Open-source code</a
-      >
-      by Steph Schatz
-    </p>
+
     <script src="script.js"></script>
   </body>
 </html>

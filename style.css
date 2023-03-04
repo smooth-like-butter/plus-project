@@ -5,10 +5,34 @@
   border: 1px solid #dadde1;
   border-radius: 10px;
 }
-
+.weather-overview {
+  margin-bottom: 20px;
+}
+.weather-temperature img {
+  margin-right: 12px;
+  height: 70px;
+  width: 70px;
+}
+.currentTemp {
+  font-size: 64px;
+  font-weight: 400px;
+  line-height: 1;
+}
+.units {
+  postion: relative;
+  font-size: 20px;
+  top: -32px;
+}
 h1 {
   color: #878787;
   font-size: 24px;
   font-weight: 100;
   line-height: 28px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
 }
