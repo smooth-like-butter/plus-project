@@ -23,6 +23,14 @@
   font-size: 20px;
   top: -32px;
 }
+.weather-temperature .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+.weather-temperature a {
+  text-decoration: none;
+}
 h1 {
   color: #878787;
   font-size: 24px;

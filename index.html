@@ -40,19 +40,25 @@
           </div>
         </form>
         <div class="weather-overview">
-          <h1>Sydney NSW, Australia</h1>
+          <h1>Tokyo</h1>
           <ul>
             <li id="current-date">Wednesday 22:00</li>
-            <li id="description">Partly Sunny</li>
+            <li id="description">Clear sky</li>
           </ul>
         </div>
         <div class="row">
           <div class="col-6">
             <div class="d-flex weather-temperature">
-              <img src=".." alt="" id="icon" />
+              <img
+                src="http://openweathermap.org/img/wn/01d@2x.png"
+                alt=""
+                id="icon"
+              />
               <span class="temperature currentTemp">19</span>
-              <span class="units">°C | </span>
-              <span class="units"><a href="#">°F</a></span>
+              <span class="units"
+                ><a href="#" id="celsius-link" class="active">°C</a> |
+              </span>
+              <span class="units"><a href="#" id="fahrenheit-link">°F</a></span>
             </div>
           </div>
           <div class="col-6">
