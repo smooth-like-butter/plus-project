@@ -31,6 +31,13 @@
 .weather-temperature a {
   text-decoration: none;
 }
+.currentLoc {
+  margin-top: 10px;
+  font-size: 13px;
+}
+.align-right {
+  text-align: right;
+}
 h1 {
   color: #878787;
   font-size: 24px;
@@ -45,4 +52,7 @@ ul {
 li {
   list-style: none;
   text-transform: capitalize;
+}
+p {
+  text-align: center;
 }

@@ -46,8 +46,6 @@ function search(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let searchInput = document.querySelector("#search-text-input");
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = `${searchInput.value}`;
 }
 let form = document.querySelector(".weather-search");
 
@@ -66,6 +64,8 @@ function showTemperature(response) {
   let windElement = document.querySelector("#wind");
   let searchInput = document.querySelector("#search-text-input");
   let iconElement = document.querySelector("#icon");
+  let h1 = document.querySelector("h1");
+  h1.innerHTML = response.data.name;
 
   searchInput.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
