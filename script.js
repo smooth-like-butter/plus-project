@@ -130,7 +130,7 @@ function showTemperature(response) {
 }
 
 function searchCity(event) {
-  event.preventDefault();
+  event?.preventDefault();
   let apiKey = "cf6b50b908fa2e0baca3eed8a569a5f6";
   let city = encodeURIComponent(
     document.querySelector("#search-text-input").value
@@ -171,3 +171,4 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheit);
 let currentLocationButton = document.querySelector(".currentLoc");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+searchCity();
