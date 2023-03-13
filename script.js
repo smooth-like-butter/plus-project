@@ -54,24 +54,26 @@ form.addEventListener("submit", search);
 let temperatures;
 let tempNow;
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
   let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri"];
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       ` <div class="col-2">
-              <div class="forecast-date">${day}</div>
+              <div class="forecast-date">${forecastDay}</div>
               <img
-                src="http://openweathermap.org/img/wn/04d@2x.png"
+                src="${forecastDay.condition.icon_url}"
                 alt=""
                 width="45"
               />
               <div class="forecast-temp">
-                <span class="forecast-temp-max">18</span>
-                <span class="forecast-temp-min"> 12 </span>
+                <span class="forecast-temp-max">${forecastDay.temperature.maximum}</span>
+                <span class="forecast-temp-min">${forecastDay.temperature.minimum}</span>
               </div>
             </div>`;
   });
@@ -79,7 +81,14 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-displayForecast();
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "aacta5134ccebc816061oeb4ff0e43f4";
+  //let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showTemperature(response) {
   celsiusTemp = response.data.main.temp;
@@ -103,7 +112,10 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
+
 function searchCity(event) {
   event.preventDefault();
   let apiKey = "cf6b50b908fa2e0baca3eed8a569a5f6";
@@ -118,7 +130,6 @@ function displayFahrenheit(event) {
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  //let temperatures = document.querySelector(".currentTemp");
   tempNow.innerHTML = Math.round(fahrenheitTemp);
 }
 let celsiusTemp;
