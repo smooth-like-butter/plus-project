@@ -41,6 +41,14 @@ function formatDate(date) {
 
 formatDate(new Date());
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function search(event) {
   event.preventDefault();
   celsiusLink.classList.add("active");
@@ -61,19 +69,24 @@ function displayForecast(response) {
 
   let forecastHTML = `<div class="row">`;
   let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri"];
-  forecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      ` <div class="col-2">
-              <div class="forecast-date">${forecastDay}</div>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6)
+      forecastHTML =
+        forecastHTML +
+        ` <div class="col-2">
+              <div class="forecast-date">${formatDay(forecastDay.time)}</div>
               <img
                 src="${forecastDay.condition.icon_url}"
                 alt=""
                 width="45"
               />
               <div class="forecast-temp">
-                <span class="forecast-temp-max">${forecastDay.temperature.maximum}</span>
-                <span class="forecast-temp-min">${forecastDay.temperature.minimum}</span>
+                <span class="forecast-temp-max">${Math.round(
+                  forecastDay.temperature.maximum
+                )}°</span>
+                <span class="forecast-temp-min">${Math.round(
+                  forecastDay.temperature.minimum
+                )}°</span>
               </div>
             </div>`;
   });
